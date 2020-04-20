@@ -13,15 +13,28 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Flexible(
-            child: SectionOne(),
-          ),
-          Flexible(
-            child: SectionTwo(),
-          )
-        ],
+      body: MediaQuery.removePadding(
+        removeTop: true,
+        context: context,
+        child: ListView(
+          physics: ClampingScrollPhysics(),
+          children: <Widget>[
+            Container(
+              height: screenHeight(context, percent:1.15),
+              width: screenWidth(context),
+              child: Column(
+                children: <Widget>[
+                  Flexible(
+                    child: SectionOne(),
+                  ),
+                  Flexible(
+                    child: SectionTwo(),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
